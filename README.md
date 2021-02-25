@@ -35,7 +35,7 @@ Parts needed:
 [tbd, but basically...]
 
 <img width=400 src="./docs/qtpyknob-wiring-diag.jpg" />
-
-<img width=400 src="./docs/qtpyknob-encoder-mount.jpg" />
-
 <img width=400 src="./docs/qtpyknob-cad-animation.gif" />
+
+<img width=400 src="./docs/qtpyknob-encoder-mount.jpg" /><img width=400 src="./docs/qtpyknob-wiring1.jpg" />
+
