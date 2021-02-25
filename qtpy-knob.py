@@ -79,6 +79,6 @@ while True:
         ring[(ring_pos-1)%len(ring)] = (67,67,67)
         ring[(ring_pos+1)%len(ring)] = (67,67,67)
         ring.show()
-        print(encoder.position,diff,button.value,pos)
+        print(encoder.position,diff,button.value,ring_pos)
         time.sleep(0.05)
     
