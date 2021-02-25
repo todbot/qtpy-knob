@@ -28,7 +28,21 @@ Parts needed:
 
 ## Software
 
-[tbd]
+Installation is:
+- Install CircuitPython on your QT Py
+- Install required CircuitPython libraries to QT Py
+- Copy qtpy-knob.py to QT Py
+
+The last two steps can be accomplished with the below
+
+```
+git clone https://github.com/todbot/qtpy-knob
+cd qtpy-knob
+pip3 install circup
+circup install -r requirements.txt
+cp qtpy-knob.py /Volumes/CIRCUITPY/code.py
+
+```
 
 ## Assembly
 
