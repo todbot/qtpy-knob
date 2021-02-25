@@ -1,0 +1,9 @@
+# requirements for qtpy-knob
+# use this file with circup to install needed libraries
+# pip3 install circup
+# circup install -r requirements
+#
+neopixel
+adafruit_pypixelbuf
+adafruit_hid
+
