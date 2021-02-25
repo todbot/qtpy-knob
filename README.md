@@ -36,4 +36,6 @@ Parts needed:
 
 <img width=400 src="./docs/qtpyknob-wiring-diag.jpg" />
 
+<img width=400 src="./docs/qtpyknob-encoder-muont.jpg" />
+
 <img width=400 src="./docs/qtpyknob-cad-animation.gif" />
