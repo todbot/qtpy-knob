@@ -63,7 +63,14 @@ add a bit of tape (Kapton, Scotch, electrical) in between the QT Py and the enco
   <img width=325 src="./docs/qtpyknob-tape.jpg"/><img width=325 src="./docs/qtpyknob-solder.jpg"/>
 
 
-2. Print out the enclosure.  Use the rotary encoder's washer & screw to hold QTPy+encoder assembly
+2. Print out the enclosure on your 3d printer. Standard 0.2mm at 20% infill is fine.  The STL files are:
+
+- `qtpyknob-base.stl` -- Base that houses the QT Py & rotary encoder
+- `qtpyknob-basecap.stl` -- Cap that goes on the bottom of the base
+- `qtpyknob-knob.stl` -- Knob that you turn
+- `qtpyknob-diffuser.stl` -- Light diffuser that goes between base & knob, should be clear. Or you can leave it out
+
+Use the rotary encoder's washer & screw to hold QTPy+encoder assembly
 
   <img width=325 src="./docs/qtpyknob-case.jpg"/>
 
