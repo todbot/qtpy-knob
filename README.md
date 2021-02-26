@@ -68,7 +68,7 @@ add a bit of tape (Kapton, Scotch, electrical) in between the QT Py and the enco
 - `qtpyknob-base.stl` -- Base that houses the QT Py & rotary encoder
 - `qtpyknob-basecap.stl` -- Cap that goes on the bottom of the base
 - `qtpyknob-knob.stl` -- Knob that you turn
-- `qtpyknob-diffuser.stl` -- Light diffuser that goes between base & knob, should be clear. Or you can leave it out
+- `qtpyknob-diffuser.stl` -- Light diffuser that goes between base & knob, should be printed with translucent or clear plastic. Or you can leave it out. Or you can approxiate it with a disk cut out clear plastic like a CD case
 
 Use the rotary encoder's washer & screw to hold QTPy+encoder assembly
 
