@@ -31,7 +31,7 @@ cc = ConsumerControl(usb_hid.devices)
 print("hello from qtpy-knob!")
 
 # standard colorwheel
-def wheel(pos):
+def colorwheel(pos):
     if pos < 0 or pos > 255:
         (r,g,b) = (0,0,0)
     elif pos < 85:
@@ -53,7 +53,7 @@ while True:
     diff = last_encoder_val - encoder.position  # encoder clicks since last read
     last_encoder_val = encoder.position
     ring_pos = (ring_pos + diff) % len(ring)    # position on LED ring
-    hue = wheel( encoder.position*4 % 255 )     # fun hue change based on pos
+    hue = colorwheel( encoder.position*4 % 255 )     # fun hue change based on pos
     
     if button.value == False:                   # button pressed
         cc.send(ConsumerControlCode.MUTE)       # toggle mute
@@ -61,7 +61,7 @@ while True:
             time.sleep(0.05)
             for i in range(len(ring)):          # spin the rainbow while held
                 pixel_index = (i*256 // len(ring)) + rainbow_pos
-                ring[i] = wheel( pixel_index & 255 )
+                ring[i] = colorwheel( pixel_index & 255 )
                 ring.show()
                 rainbow_pos = (rainbow_pos + 1) % 256
     else:
