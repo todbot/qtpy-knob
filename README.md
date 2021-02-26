@@ -88,3 +88,12 @@ add a bit of tape (Kapton, Scotch, electrical) in between the QT Py and the enco
 
 
 
+## Useful links
+
+Resources that helped me out on this:
+
+- https://learn.adafruit.com/media-dial
+- https://learn.adafruit.com/make-it-a-keyboard/circuitpython
+- https://github.com/adafruit/Adafruit_CircuitPython_HID/tree/master/examples
+- https://circuitpython.readthedocs.io/projects/hid/en/latest/api.html#adafruit-hid-consumer-control-consumercontrol
+- https://learn.adafruit.com/trinket-usb-volume-knob
