@@ -13,6 +13,8 @@ The QTPy-Knob features:
 - Only 3 wires needed to solder (none if you want to forgo LED lighting)
 - Reprogrammable for any USB macro key action via CircuitPython
 
+A small video about it: https://www.youtube.com/watch?v=pt7JgoSlgOg
+
 This is an attempt to make a minimal and easy-to-build version of similar, previous projects like:
 - https://learn.adafruit.com/trinket-usb-volume-knob
 - https://learn.adafruit.com/media-dial
