@@ -24,7 +24,7 @@ This is an attempt to make a minimal and easy-to-build version of similar, previ
 Parts needed:
 
 - Adafruit QT Py (https://www.adafruit.com/product/4600)
-- Adafruti Neopixel Ring (https://www.adafruit.com/product/1463 or equiv)
+- Adafruit Neopixel Ring (https://www.adafruit.com/product/1463 or equiv)
 - Rotary encoder (https://www.adafruit.com/product/377 or equiv)
 - 3D printed enclosure (see "cad" folder)
 
