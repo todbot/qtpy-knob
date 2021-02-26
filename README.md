@@ -75,7 +75,7 @@ Use the rotary encoder's washer & screw to hold QTPy+encoder assembly
   <img width=325 src="./docs/qtpyknob-case.jpg"/>
 
 
-3. Solder three wires to the Neopixel ring, insert the ring into the enclosure and solder the wires to the 3V, Gnd, and MO pins of the QT Py.  Use a bit of hot glue to secure the Neopixel ring if it doesn't snap in.
+3. Solder three wires to the Neopixel ring, insert the ring into the enclosure and solder the wires to the 3V, Gnd, and MI pins of the QT Py.  Use a bit of hot glue to secure the Neopixel ring if it doesn't snap in.
 
   <img width=325 src="./docs/qtpyknob-wiring1.jpg"/>
 
