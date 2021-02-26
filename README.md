@@ -28,10 +28,12 @@ Parts needed:
 
 ## Software
 
-Installation is:
-- Install CircuitPython on your QT Py
+Software installation consists of:
+- Install CircuitPython on the QT Py
 - Install required CircuitPython libraries to QT Py
 - Copy qtpy-knob.py to QT Py
+
+The CircuitPython installation step is described here: https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython
 
 The last two steps can be accomplished with the below
 
@@ -44,11 +46,43 @@ cp qtpy-knob.py /Volumes/CIRCUITPY/code.py
 
 ```
 
+### Variations
+
+There are a few variations of the code provided:
+- `qtpy-knob-scroller.py` -- performs scrolling instead of volume knob
+- `qtpy-knob-simple.py` -- no neopixel stuff, just encoder and USB sending
+
 ## Assembly
 
-[tbd, but basically...]
+Steps:
 
-<img width=325 src="./docs/qtpyknob-wiring-diag.jpg" /><img width=325 src="./docs/qtpyknob-cad-animation.gif" />
+1. Plug rotary encoder to bottom of QT Py. If your encoder has metal on the bottom,
+add a bit of tape (Kapton, Scotch, electrical) in between the QT Py and the encoder.  If your encoder has mounting tabs, cut them off.  Solder the five pins.
 
-<img width=325 src="./docs/qtpyknob-encoder-mount.jpg" /><img width=325 src="./docs/qtpyknob-wiring1.jpg" />
+  <img width=325 src="./docs/qtpyknob-tape.jpg"/><img width=325 src="./docs/qtpyknob-solder.jpg"/>
+
+
+2. Print out the enclosure.  Use the rotary encoder's washer & screw to hold QTPy+encoder assembly
+
+  <img width=325 src="./docs/qtpyknob-case.jpg"/>
+
+
+3. Solder three wires to the Neopixel ring, insert the ring into the enclosure and solder the wires to the 3V, Gnd, and MO pins of the QT Py.  Use a bit of hot glue to secure the Neopixel ring if it doesn't snap in.
+
+  <img width=325 src="./docs/qtpyknob-wiring1.jpg"/>
+
+4. Snap the bottom cap on and the knob top on and you're done with physical assembly!
+
+  <img width=400 src="./docs/qtpyknob-pic1.jpg" />
+
+
+### Wiring diagram
+
+<img width=500 src="./docs/qtpyknob-wiring-diag.jpg" />
+
+### Assembly animation
+
+<img width=500 src="./docs/qtpyknob-cad-animation.gif" />
+
+
 
