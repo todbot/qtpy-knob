@@ -45,7 +45,6 @@ cd qtpy-knob
 pip3 install circup
 circup install -r requirements.txt
 cp qtpy-knob.py /Volumes/CIRCUITPY/code.py
-
 ```
 
 ### Variations
@@ -81,6 +80,7 @@ add a bit of tape (Kapton, Scotch, electrical) in between the QT Py and the enco
 ### Wiring diagram
 
 <img width=500 src="./docs/qtpyknob-wiring-diag.jpg" />
+
 
 ### Assembly animation
 
