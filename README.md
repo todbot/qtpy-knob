@@ -33,7 +33,7 @@ Parts needed:
 Software installation consists of:
 - Install CircuitPython on the QT Py
 - Install required CircuitPython libraries to QT Py
-- Copy qtpy-knob.py to QT Py
+- Copy qtpy_knob.py to QT Py
 
 The CircuitPython installation step is described here: https://learn.adafruit.com/welcome-to-circuitpython/installing-circuitpython
 
@@ -44,14 +44,14 @@ git clone https://github.com/todbot/qtpy-knob
 cd qtpy-knob
 pip3 install circup
 circup install -r requirements.txt
-cp qtpy-knob.py /Volumes/CIRCUITPY/code.py
+cp qtpy_knob.py /Volumes/CIRCUITPY/code.py
 ```
 
 ### Variations
 
 There are a few variations of the code provided:
-- `qtpy-knob-scroller.py` -- performs scrolling instead of volume knob
-- `qtpy-knob-simple.py` -- no neopixel stuff, just encoder and USB sending
+- `qtpy_knob_scroller.py` -- performs scrolling instead of volume knob
+- `qtpy_knob_simple.py` -- no neopixel stuff, just encoder and USB sending
 
 ## Assembly
 
