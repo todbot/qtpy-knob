@@ -52,6 +52,7 @@ cp qtpy_knob.py /Volumes/CIRCUITPY/code.py
 There are a few variations of the code provided:
 - `qtpy_knob_scroller.py` -- performs scrolling instead of volume knob
 - `qtpy_knob_simple.py` -- no neopixel stuff, just encoder and USB sending
+- `qtpy_knob_midi_cc.py` -- sends MIDI CC instead of keyboard/mouse
 
 ## Assembly
 
