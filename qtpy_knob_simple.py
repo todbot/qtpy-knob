@@ -1,7 +1,7 @@
 # qtpy_knob_simple.py -- Mount a rotary encoder directly to an Adafruit QT Py,
 #                        in the simplest possible code
 # https://github.com/todbot/qtpy-knob
-# 2020 @todbot / Tod Kurt
+# 2021 @todbot / Tod Kurt
 #
 
 import time

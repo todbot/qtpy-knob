@@ -1,7 +1,7 @@
 # qtpy_knob.py -- Mount a rotary encoder directly to an Adafruit QT Py,
 #                 add some neopixels and get a USB media knob
 # https://github.com/todbot/qtpy-knob
-# 2020 @todbot / Tod Kurt
+# 2021 @todbot / Tod Kurt
 #
 
 import time

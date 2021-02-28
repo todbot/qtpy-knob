@@ -7,7 +7,7 @@
 #        delete the 'adafruit_hid' library and install the 'adafruit_midi' library
 #
 # https://github.com/todbot/qtpy-knob/
-# 2020 @todbot / Tod Kurt
+# 2021 @todbot / Tod Kurt
 #
 
 import time

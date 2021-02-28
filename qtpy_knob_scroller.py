@@ -3,7 +3,7 @@
 #                          Turning knob scrolls vertically,
 #                          pressing & turning scrolls horizontally
 # https://github.com/todbot/qtpy-knob
-# 2020 @todbot / Tod Kurt
+# 2021 @todbot / Tod Kurt
 #
 
 import time
