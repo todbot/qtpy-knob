@@ -13,6 +13,9 @@ import usb_hid
 from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.consumer_control_code import ConsumerControlCode
 
+# number of seconds to keep LED ring on, 0 == keep on forever
+ring_on_time = 0
+
 # 16 position neopixel ring
 ring = neopixel.NeoPixel(board.MISO, 16, brightness=0.2, auto_write=False)
 
@@ -49,12 +52,19 @@ def colorwheel(pos):
 last_encoder_val = encoder.position
 ring_pos = 0
 rainbow_pos = 0
+last_time = time.monotonic()
+ring_on = True
 
 while True: 
-    diff = last_encoder_val - encoder.position  # encoder clicks since last read
+    encoder_diff = last_encoder_val - encoder.position  # encoder clicks since last read
     last_encoder_val = encoder.position
-    ring_pos = (ring_pos + diff) % len(ring)    # position on LED ring
+    ring_pos = (ring_pos + encoder_diff) % len(ring)    # position on LED ring
     hue = colorwheel( encoder.position*4 % 255 )     # fun hue change based on pos
+
+    # LED ring goes off after a time of no activity
+    if encoder_diff !=0 or button.value == False:
+        last_time = time.monotonic()
+    ring_on = (ring_on_time==0 or time.monotonic() - last_time < ring_on_time)
     
     if button.value == False:                   # button pressed
         cc.send(ConsumerControlCode.MUTE)       # toggle mute
@@ -66,20 +76,24 @@ while True:
                 ring.show()
                 rainbow_pos = (rainbow_pos + 1) % 256
     else:
-        if diff > 0:
-            for i in range(diff):
+        if encoder_diff > 0:
+            for i in range(encoder_diff):
                 cc.send(ConsumerControlCode.VOLUME_DECREMENT)
                 time.sleep(0.01)
-        elif diff < 0:
-            for i in range(-diff):
+        elif encoder_diff < 0:
+            for i in range(-encoder_diff):
                 cc.send(ConsumerControlCode.VOLUME_INCREMENT)
                 time.sleep(0.01)
 
-        ring.fill( [int(i/4) for i in hue] ) # make it 1/4 dimmer 
-        ring[ring_pos] = (255,255,255)
-        ring[(ring_pos-1)%len(ring)] = (67,67,67)
-        ring[(ring_pos+1)%len(ring)] = (67,67,67)
+        if ring_on:
+            ring.fill( [int(i/4) for i in hue] ) # make it 1/4 dimmer 
+            ring[ring_pos] = (255,255,255)
+            ring[(ring_pos-1)%len(ring)] = (67,67,67)
+            ring[(ring_pos+1)%len(ring)] = (67,67,67)
+        else:  # fade out LED ring if past ring_on_time
+            ring[0:] = [[max(i-20,0) for i in l] for l in ring]
         ring.show()
-        print(encoder.position,diff,button.value,ring_pos)
-        time.sleep(0.05)
-    
+            
+        #print(ring_on,encoder.position,encoder_diff,button.value,ring_pos)
+        time.sleep(0.01)
+
