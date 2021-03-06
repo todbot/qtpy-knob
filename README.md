@@ -25,7 +25,7 @@ Parts needed:
 
 - Adafruit QT Py (https://www.adafruit.com/product/4600)
 - Adafruit Neopixel Ring (https://www.adafruit.com/product/1463 or equiv)
-- Rotary encoder (https://www.adafruit.com/product/377 or equiv)
+- Rotary encoder (https://www.adafruit.com/product/377 or equiv. The 3D printed case expects similar to PEC11-4120F-S0018 w/ 20mm shaft & 7mm threaded barrel, see [here for mods if using a 15mm encoder](https://github.com/todbot/qtpy-knob/issues/2)
 - 3D printed enclosure (see "cad" folder)
 
 ## Software
