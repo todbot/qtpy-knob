@@ -23,7 +23,7 @@ This is an attempt to make a minimal and easy-to-build version of similar, previ
 
 Parts needed:
 
-- Adafruit QT Py (https://www.adafruit.com/product/4600)
+- Adafruit QT Py (Must be [QTPy M0](https://www.adafruit.com/product/4600) or [XIAO SAMD21](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html), QTPy RP2040 does not work currently)
 - Adafruit Neopixel Ring (https://www.adafruit.com/product/1463 or equiv)
 - Rotary encoder (PEC11-4120F-S0018 or equiv. The 3D printed case expects encoder w/ 20mm shaft & 7mm threaded barrel, see [here for mods if using a 15mm encoder](https://github.com/todbot/qtpy-knob/issues/2))
 - 3D printed enclosure (see "cad" folder)
