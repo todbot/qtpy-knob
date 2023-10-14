@@ -15,7 +15,7 @@ import board
 from digitalio import DigitalInOut, Direction, Pull
 import neopixel
 import usb_hid
-#from rainbowio import colorwheel
+from rainbowio import colorwheel
 from adafruit_hid.consumer_control import ConsumerControl
 from adafruit_hid.consumer_control_code import ConsumerControlCode
 
@@ -25,8 +25,11 @@ else:
     from rotaryio import IncrementalEncoder
 
 
-# number of seconds to keep LED ring on, 0 == keep on forever
+# config: number of seconds to keep LED ring on, 0 == keep on forever
 ring_on_time = 0
+
+# config: print out qtpy_knob state to REPL
+debug = False
 
 # 16 position neopixel ring
 ring = neopixel.NeoPixel(board.MISO, 16, brightness=0.2, auto_write=False)
@@ -47,22 +50,12 @@ cc = ConsumerControl(usb_hid.devices)
 last_encoder_val = encoder.position
 ring_pos = 0
 rainbow_pos = 0
-last_time = time.monotonic()
+last_time = 0
 ring_on = True
 
-def colorwheel(pos):
-    """ emulate rainbowio.colorwheel, sorta """
-    if pos < 0 or pos > 255:
-        (r,g,b) = (0,0,0)
-    elif pos < 85:
-        (r,g,b) = (int(pos * 3), int(255 - pos * 3), 0)
-    elif pos < 170:
-        pos -= 85
-        (r,g,b) = (int(255 - pos * 3), 0, int(pos * 3))
-    else:
-        pos -= 170
-        (r,g,b) = (0, int(pos * 3), int(255 - pos * 3))
-    return (r, g, b)
+def color_int_to_tuple(val):
+    """Convert a 24-bit color int to a 3-int tuple"""
+    return (val >> 16 & 0xff, val >> 8 & 0xff, val >> 0 & 0xff)
 
 print("hello from qtpy-knob!")
 
@@ -71,11 +64,13 @@ while True:
     encoder_diff = last_encoder_val - encoder_pos  # encoder clicks since last read
     last_encoder_val = encoder_pos
     ring_pos = (ring_pos + encoder_diff) % len(ring)    # position on LED ring
-    hue = colorwheel( encoder_pos*4 % 255 )     # fun hue change based on pos
+    fun_color = colorwheel( (20 + encoder_pos*4) % 255 )     # fun hue change based on pos
+    fun_color = color_int_to_tuple(fun_color)  # convert to tuple for down below
 
     # LED ring goes off after a time of no activity
     if encoder_diff !=0 or button.value is False:
         last_time = time.monotonic()
+
     ring_on = (ring_on_time==0 or time.monotonic() - last_time < ring_on_time)
 
     if button.value is False:                   # button pressed
@@ -99,13 +94,14 @@ while True:
                 time.sleep(0.01)
 
         if ring_on:
-            ring.fill( [int(i/4) for i in hue] ) # make it 1/4 dimmer
-            ring[ring_pos] = (255,255,255)
-            ring[(ring_pos-1)%len(ring)] = (67,67,67)
-            ring[(ring_pos+1)%len(ring)] = (67,67,67)
+            ring.fill( [int(i/2) for i in fun_color] ) # make it 1/2 dimmer
+            ring[ring_pos] = (255,255,255)  # 'pointer' of where knob is
+            ring[(ring_pos-1)%len(ring)] = (37,37,37) # and some surrounds for pointer
+            ring[(ring_pos+1)%len(ring)] = (37,37,37)
         else:  # fade out LED ring if past ring_on_time
-            ring[:] = [[max(i-20,0) for i in l] for l in ring]
+            ring[:] = [[max(i-10,0) for i in l] for l in ring]
         ring.show()
 
-        #print(ring_on,encoder_pos,encoder_diff,button.value,ring_pos)
+        if debug:
+            print(ring_on,encoder_pos,encoder_diff,button.value,ring_pos)
         time.sleep(0.01)
