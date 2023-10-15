@@ -23,14 +23,17 @@ This is an attempt to make a minimal and easy-to-build version of similar, previ
 
 Parts needed:
 
-- Adafruit QT Py (Must be [QTPy M0](https://www.adafruit.com/product/4600) or [XIAO SAMD21](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html), QTPy RP2040 does not work currently)
+- Adafruit QT Py (Originally for [QTPy M0](https://www.adafruit.com/product/4600) or [XIAO SAMD21](https://www.seeedstudio.com/Seeeduino-XIAO-Arduino-Microcontroller-SAMD21-Cortex-M0+-p-4426.html), but [QTPy RP2040](https://www.adafruit.com/product/4900) does work via a `fakerotaryio` hack)
 - Adafruit Neopixel Ring (https://www.adafruit.com/product/1463 or equiv)
 - Rotary encoder (PEC11-4120F-S0018 or equiv. The 3D printed case expects encoder w/ 20mm shaft & 7mm threaded barrel, see [here for mods if using a 15mm encoder](https://github.com/todbot/qtpy-knob/issues/2))
 - 3D printed enclosure (see "cad" folder)
 
 ## Software
 
-Software installation consists of:
+For some of the scripts and for some QT Py variants,
+there are [prebuilt UF2 firmware images in Releases](https://github.com/todbot/qtpy-knob/releases).
+
+Otherwise, software installation consists of:
 - Install CircuitPython on the QT Py
 - Install required CircuitPython libraries to QT Py
 - Copy qtpy_knob.py to QT Py
@@ -47,12 +50,15 @@ circup install -r requirements.txt
 cp qtpy_knob.py /Volumes/CIRCUITPY/code.py
 ```
 
+**RP2040 NOTE:** And if you have a QTPy RP2040, be sure to copy the "fakerotaryio.py" file to CIRCUITPY as well.
+
 ### Variations
 
 There are a few variations of the code provided:
-- `qtpy_knob_scroller.py` -- performs scrolling instead of volume knob
-- `qtpy_knob_simple.py` -- no neopixel stuff, just encoder and USB sending
-- `qtpy_knob_midi_cc.py` -- sends MIDI CC instead of keyboard/mouse
+- [`qtpy_knob.py`](./qtpy_knob.py)  -- volume up / down and mute
+- [`qtpy_knob_scroller.py`](./qtpy_knob_scroller.py) -- performs vertical & horizontal scrolling
+- [`qtpy_knob_midi_cc.py`](./qtpy_knob_midi_cc.py) -- sends MIDI CC instead of keyboard/mouse
+- [`qtpy_knob_simple.py`](./qtpy_knob_simple.py) -- no neopixel stuff, just encoder and USB vol up/down sending
 
 ## Assembly
 
